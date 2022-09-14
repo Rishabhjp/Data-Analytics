@@ -1,0 +1,224 @@
+---
+title: "FOUNDATIONS OF DATA ANALYTICS"
+author: "LAB-1"
+date: "2022-08-01"
+output: 
+  pdf_document: 
+    highlight: haddock
+---
+# Rishabh Jain Patni
+# 20BRS1065
+
+
+## Understanding Basic Data Types in R
+
+```{r}
+# 1. Let the money be denoted as variable A. Assign a decimal value to it and display it.
+
+A= 5.1
+A
+```
+```{r}
+# 2.Print the class name of the variable A
+
+class(A)
+```
+
+
+```{r}
+# 3. Check whether the variable A is of type ‘numeric’
+
+if (class(A)=="numeric")
+ {
+   print("Type is numeric")
+ }  else 
+ {
+  print("Type is not numeric")
+ }
+```
+
+
+```{r}
+# 4. Let the number of chocolates be denoted as variable B. Assign an integer value to it and display it.
+# by default, it is an numeric value -> B= 10
+
+B= as.integer(10)
+B
+
+```
+
+
+```{r}
+# 5. Check whether the variable B is of type ‘integer’
+
+if (class(B)=="integer")
+{
+  print("Type is integer")
+}  else 
+{
+  print("Type is not integer")
+}
+
+```
+
+```{r}
+# 6. Create a variable C which stores the rupee part of the money he carried
+
+C= as.integer(A)
+C
+
+```
+
+```{r}
+# 7. Compute the cost of a chocolate
+# cost is used when you want to print text + variable together
+
+cost= C/B
+print (paste("Cost Of Each Chocolate : ", cost))
+
+```
+
+```{r}
+# 8. Represent the money as character string
+
+cost= as.character(cost)
+class(cost)
+
+```
+
+```{r}
+# 9. Store the first name and last name of the kid.
+
+first_name= "Ram"
+last_name= "Raj"
+
+
+```
+
+```{r}
+# 10. Display the message “<firstnamelastname> bought <B> chocolates
+
+print(paste(first_name, last_name, "bought", B, "chocolates "))
+
+rhymes= "Twinkle Twinkle Little Star"
+
+
+```
+```{r}
+# 11. Extract the substring “Little ” from the rhymes.
+
+substring(rhymes, 17, 22)
+
+```
+```{r}
+# 12. Replace “Little” as “Big”
+
+sub("Little", "Big", rhymes)
+rhymes
+
+
+```
+
+```{r}
+# 13. Assign a complex number to a variable X
+
+X= 3 + 2i
+X
+
+# 14. Display the real part of X
+
+Re(X)
+
+# 15.Display the real part of X
+
+Im(X)
+
+# 16. Compute square root of a negative number
+
+sqrt(-1)
+
+# 17. Check whether real part of X is greater than its imaginary part.
+
+if (Re(X)> Im(X))
+{
+  print("Real > Img")
+} else
+{
+  print("Real < Img")
+}
+
+```
+
+## B. Working with Vectors in R
+
+```{r}
+# 1. Create vector ‘class’ to store the class names ‘class1’,’class2’,…,’class5’ 
+
+class= c("class1", "class2", "class3", "class4", "class5")
+
+# 2. Use assign() function to create a vector ‘avg’ to store the average marks.
+
+assign("avg", c(12,13,14,15,16))
+
+# 3. Display the average mark of class2
+
+avg[2]
+
+# 4. Display all the average marks except class 2
+
+res= c(TRUE, FALSE, TRUE, TRUE, TRUE )
+avg[res]
+
+# 5. Access the average mark of class4 by its name
+
+avg[match("class4", class)]
+
+# 6. Find the minimum average mark and print the class which scored it
+
+cat (paste("Minimum Marks is", min(avg), "Stored in", class[match(min(avg), avg)]))
+
+# 7. Find the maximum average mark and print the class which scored it
+
+cat (paste("Maximum Marks is", max(avg), "Stored in", class[match(max(avg), avg)]))
+
+# 8. Find the total of average marks scored by all classes
+
+sum(avg)
+
+# 9. Find the mean of the average marks scored by all classes
+
+mean(avg)
+
+# 10. Find the standard deviation of the average marks scored by all classes
+
+sd(avg)
+
+# 11. Arrange the average marks in ascending order
+
+sort(avg, decreasing= FALSE)
+
+# 12. Create a vector classes by repeat the vector class twice
+
+classes= rep(class, each=2)
+classes 
+
+# 13. Create a vector marks by repeat the vector avg twice
+
+marks= rep(avg, each=2)
+marks
+
+# 14. Create a vector report by adding the vector avg with a sequence of 10 to
+# 1 and find its length
+
+report= avg + 1:10 
+report
+length(report)
+
+# 15. Identify the classes for which the average mark>90
+
+for (i in 1:length(marks)) {
+  if (marks[i]>70)
+     classes[i]
+}
+```
+
